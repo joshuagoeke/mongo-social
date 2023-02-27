@@ -15,9 +15,9 @@ const grade = async (studentId) =>
     // TODO: Ensure we include only the student who can match the given ObjectId using the $match operator
     { $match: { _id: ObjectId(studentId) } 
     },
-    // {
-    //   $unwind: '$assignments',
-    // },
+    {
+      $unwind: '$assignments',
+    },
     // TODO: Group information for the student with the given ObjectId alongside an overall grade calculated using the $avg operator
     {
       // Your code here
