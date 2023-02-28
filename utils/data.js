@@ -74,6 +74,8 @@ const names = [
   'Parker',
 ];
 
+
+//refactor into random thought text
 const appDescriptions = [
   'Decision Tracker',
   'Find My Phone',
