@@ -19,4 +19,5 @@ router
 
 module.exports = router;
 
+//TODO Update index.js when thought routes and controller are updated
 //copy user and change friends to reactions

@@ -53,3 +53,5 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 };
+
+//TODO Update index.js when thought routes and controller are updated
