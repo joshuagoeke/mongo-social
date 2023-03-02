@@ -1,11 +1,13 @@
 const { Schema, model } = require('mongoose');
 
+ // reactionId: {
+  //   type: Schema.Types.ObjectId,
+  //   default: () => new Types.ObjectId(),
+  // },
+
 const reactionSchema = new Schema(
   {
-  reactionID: {
-    type: Schema.Types.ObjectId,
-    default: () => new Types.ObjectId(),
-  },
+ 
   reactionBody: {
     type: String,
     required: true,
@@ -31,12 +33,14 @@ const reactionSchema = new Schema(
 )
 
 
+// thoughtId: {
+    //   type: Schema.Types.ObjectId,
+    //   default: () => new Types.ObjectId(),
+    // },
+
 const thoughtSchema = new Schema(
   {
-    thoughtId: {
-      type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId(),
-    },
+    
     thoughtText: {
       type: String,
       required: true,
