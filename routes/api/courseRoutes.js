@@ -18,3 +18,5 @@ router
   .delete(deleteCourse);
 
 module.exports = router;
+
+//copy user and change friends to reactions

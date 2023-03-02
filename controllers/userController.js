@@ -44,7 +44,7 @@ module.exports = {
         return res.status(500).json(err);
       });
   },
-
+//add .populate('thoughts') and .populate('friends')
   // Get a single user
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId})
