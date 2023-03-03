@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const {format_date} = require('../utils/helpers');
 
  // reactionId: {
   //   type: Schema.Types.ObjectId,
@@ -69,6 +70,10 @@ const thoughtSchema = new Schema(
     id: false,
   }
 );
+
+thoughtSchema.virtual('reactionCount').get(function() {
+  return this.reactions.length;
+});
 
 const Thought = model('thought', thoughtSchema);
 module.exports = Thought;
