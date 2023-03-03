@@ -31,7 +31,8 @@ module.exports = {
         .then((user) =>{
           !user
             ? res.status(404).json({ message: 'No user with that username' })
-            : res.json(req.body, _id);
+            : res.json({ username: user.username, thoughts: user.thoughts[0] });
+          
         })
         
       })
@@ -58,13 +59,13 @@ module.exports = {
 
   // Delete a thought by id
   deleteThought(req, res) {
-    Thought.findOneAndDelete({ _id: req.params.thoughtId })
+    Thought.findOneAndRemove({ _id: req.params.thoughtId })
       .then((thought) =>
         !thought
           ? res.status(404).json({ message: 'No thought with that ID' })
-          : Student.deleteMany({ _id: { $in: thought.students } })
+          : User.findOneAndUpdate({thoughts: req.params.thoughtId}, {$pull: {thoughts: req.params.thoughtId}}, {new: true})
       )
-      .then(() => res.json({ message: 'Course and students deleted!' }))
+      .then(() => res.json({ message: 'brain fart!' }))
       .catch((err) => res.status(500).json(err));
   },
  
