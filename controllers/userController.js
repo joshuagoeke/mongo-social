@@ -2,15 +2,17 @@
 //const { ObjectId } = require('mongoose').Types;
 const { User, Thought } = require('../models');
 
-
+// .populate('friends')  //in the response object
+// .populate('thoughts') //include thoughts and friends
 //add .populate('thoughts') and .populate('friends')
 module.exports = {
   // Get all users
   getUsers(req, res) {
+    console.log('getting users!');
     User.find()
       .select('-__v') // exclude the __v field
-      .populate('thoughts') //include thoughts and friends
-      .populate('friends')  //in the response object
+     
+      
       .then((users) => res.json(users))
       .catch((err) =>  res.status(500).json(err));
       

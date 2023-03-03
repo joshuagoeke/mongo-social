@@ -11,7 +11,7 @@ const {
   // removeReaction,
 } = require('../../controllers/thoughtController');
 
-// /api/users
+// /api/users/
 router.route('/').get(getThoughts).post(createThought);
 
 // /api/users/:userId/thoughts/:thoughtId

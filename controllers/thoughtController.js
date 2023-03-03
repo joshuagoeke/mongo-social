@@ -20,6 +20,8 @@ module.exports = {
   },
   // Create a thought
   createThought(req, res) {
+    console.log('creating a most interesting thought');
+    console.log(req.body);
     Thought.create(req.body)
       .then((thought) => {
         return User.findOneAndUpdate(
@@ -27,7 +29,7 @@ module.exports = {
           { $push: { thoughts: thought } },
           { new: true }
         
-        )
+        );
         
       })
       .catch((err) => {
