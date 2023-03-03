@@ -69,4 +69,39 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
  
+// Create a reaction to a thought by thought id
+addReaction(req, res) {
+  console.log('reacting to content');
+  console.log(req.body);
+  Thought.findOneAndUpdate(
+    { _id: req.params.thoughtId },
+    { $push: { reactions: req.body } },
+    { new: true }
+  )
+  .populate({
+    path:'reactions',
+    select: '-__v'
+  })
+  // .select('-__v')
+  .then(reaction => {
+    if (!reaction) {
+      return res.status(404).json({ message: 'No thought with that ID' });
+  };
+  res.json(reaction);
+  })
+  .catch(err => res.status(500).json(err.message));
+},
+
+  // Delete a reaction by id
+  removeReaction(req, res) {
+    Thought.findOneAndRemove({ _id: req.params.reactionId })
+      .then((reaction) =>
+        !reaction
+          ? res.status(404).json({ message: 'No reaction with that ID' })
+          : User.findOneAndUpdate({reactions: req.params.reactionId}, {$pull: {reactions: req.params.reactionId}}, {new: true})
+      )
+      .then(() => res.json({ message: 'un-reacted' }))
+      .catch((err) => res.status(500).json(err));
+  },
+
 };
