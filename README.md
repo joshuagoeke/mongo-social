@@ -12,7 +12,7 @@ In this homework assignment from the University of Texas-Austin Bootcamp we were
 
 Mongo-Social is a joke social media platform that provides a slightly humorous exploration of the back-end of a very simple social network application utilizing Node.js, Express.js, and MongoDB. 
 
-Completing this challenge helped me learn quite a bit about connecting all of the endpoints to a no-SQL database utilizing Mongoose tools to make sure that only clean data that fits a schema goes in and out of the database. I began by re-factoring code provided by the University of Texas-Austin Bootcamp, but then found myself chucking sections of it to re-write based on the advice and examples porvided by more experienced peers and mentors.
+Completing this challenge helped me learn quite a bit about connecting all of the endpoints to a no-SQL database utilizing the Mongoose ODM to make sure that only clean data that fits a schema goes in and out of the database. I began by re-factoring code provided by the University of Texas-Austin Bootcamp, but then found myself chucking sections of it to re-write based on the advice and examples porvided by more experienced peers and mentors.
 
 I definitely learned a lot about routes with MongoDB!
 
