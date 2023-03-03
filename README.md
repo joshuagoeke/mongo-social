@@ -38,7 +38,7 @@ https://loom.com/share/51f9b6082c094da398c54e806a83502e
 
 ## Credits
 
-A big thanks to my fellow bootcamp students for their input on this chalenge!
+A big thanks to my fellow bootcamp students for their input on this challenge!
 
 - "MJ" Myeonghun Jeong https://github.com/mjtic
 
