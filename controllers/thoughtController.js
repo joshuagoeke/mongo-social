@@ -92,16 +92,21 @@ addReaction(req, res) {
   .catch(err => res.status(500).json(err.message));
 },
 
-  // Delete a reaction by id
+  // Delete a reaction by thoughtId and reactionId
   removeReaction(req, res) {
-    Thought.findOneAndRemove({ _id: req.params.reactionId })
-      .then((reaction) =>
-        !reaction
-          ? res.status(404).json({ message: 'No reaction with that ID' })
-          : User.findOneAndUpdate({reactions: req.params.reactionId}, {$pull: {reactions: req.params.reactionId}}, {new: true})
-      )
-      .then(() => res.json({ message: 'un-reacted' }))
-      .catch((err) => res.status(500).json(err));
-  },
+    Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      { $pull: { reactions: { reactionId: req.params.reactionId } } },
+      { new: true }
+    )
+    .then((thought) => {
+      if (!thought) {
+        return res.status(404).json({ message: 'No thought with that ID' });
+        return;
+      };
+      res.json(thought);
+    })
+    .catch(err => res.status(500).json(err.message));
+  }
 
 };
